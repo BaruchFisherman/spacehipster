@@ -1,4 +1,5 @@
 ﻿namespace SpaceHipster {
+    "use strict";
 
     export enum ImageName {
         Space,

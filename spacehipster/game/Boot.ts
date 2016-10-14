@@ -1,6 +1,6 @@
 ﻿
-
 namespace SpaceHipster {
+    "use strict";
 
     export class Boot extends Phaser.State {
 
@@ -11,7 +11,7 @@ namespace SpaceHipster {
             this.load.image(ImageName.Preloadbar.toString(), "assets/images/preloader-bar.png");
         }
 
-        create() {
+        create(): void {
             // loading screen will have a white background
             this.game.stage.backgroundColor = "#fff";
 

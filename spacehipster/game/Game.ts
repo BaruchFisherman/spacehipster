@@ -1,6 +1,4 @@
-﻿
-
-namespace SpaceHipster {
+﻿namespace SpaceHipster {
 
     export class Game extends Phaser.State {
 
@@ -51,7 +49,7 @@ namespace SpaceHipster {
             this.collectSound = this.game.add.audio("collect");
         }
 
-        update() {
+        update(): void {
             if (this.game.input.activePointer.justPressed()) {
 
                 // move on the direction of the input
@@ -65,7 +63,7 @@ namespace SpaceHipster {
             this.game.physics.arcade.overlap(this.player, this.collectables, this.collect, null, this);
         }
 
-        generateCollectables() {
+        generateCollectables(): void {
 
             this.collectables = this.game.add.group();
 
@@ -85,7 +83,7 @@ namespace SpaceHipster {
             }
         }
 
-        generateAsteriods() {
+        generateAsteriods(): void {
 
             this.asteroids = this.game.add.group();
 
@@ -109,13 +107,13 @@ namespace SpaceHipster {
             }
         }
 
-        hitAsteroid (player, asteroid) {
+        hitAsteroid(player, asteroid): void {
 
             // play explosion sound
             this.explosionSound.play();
 
             // make the player explode
-            var emitter = this.game.add.emitter(this.player.x, this.player.y, 100);
+            let emitter = this.game.add.emitter(this.player.x, this.player.y, 100);
             emitter.makeParticles(ImageName.PlayerParticle.toString());
             emitter.minParticleSpeed.setTo(-200, -200);
             emitter.maxParticleSpeed.setTo(200, 200);
@@ -126,12 +124,12 @@ namespace SpaceHipster {
             this.game.time.events.add(800, this.gameOver, this);
         }
 
-        gameOver() {
+        gameOver(): void {
             // pass it the score as a parameter 
             this.game.state.start("MainMenu", true, false, this.playerScore);
         }
 
-        collect(player, collectable) {
+        collect(player, collectable): void {
 
             // play collect sound
             this.collectSound.play();
@@ -144,7 +142,7 @@ namespace SpaceHipster {
             collectable.destroy();
         }
 
-        showLabels () {
+        showLabels (): void {
             // score text
             let text = "0";
             let style = { font: "20px Arial", fill: "#fff", align: "center" };
