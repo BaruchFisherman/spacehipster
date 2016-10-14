@@ -2,4 +2,4 @@
 ========
 
 ## What is this?
-Typescript implementation of tSpacehipster Game from ZENVA.com tutorial.
+Typescript implementation of Spacehipster Game from ZENVA.com tutorial.
