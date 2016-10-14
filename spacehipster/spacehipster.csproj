@@ -23,14 +23,31 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="asset licenses.txt" />
     <Content Include="index.html" />
+    <Content Include="lib\phaser.js" />
+    <Content Include="assets\images\enemy.png" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\player-particle.png" />
+    <Content Include="assets\images\player.png" />
+    <Content Include="assets\images\power.png" />
+    <Content Include="assets\images\preloader-bar.png" />
+    <Content Include="assets\images\rock.png" />
+    <Content Include="assets\images\space.png" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="game\Boot.ts" />
+    <TypeScriptCompile Include="game\Game.ts" />
+    <TypeScriptCompile Include="game\Images.ts" />
+    <TypeScriptCompile Include="game\main.ts" />
+    <TypeScriptCompile Include="game\MainMenu.ts" />
+    <TypeScriptCompile Include="game\Preload.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
+    <Content Include="assets\audio\collect.ogg" />
+    <Content Include="assets\audio\explosion.ogg" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -38,6 +55,7 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>

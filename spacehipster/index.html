@@ -1,15 +1,27 @@
 ﻿<!DOCTYPE html>
+<html>
 
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>TypeScript HTML App</title>
-    <link rel="stylesheet" href="app.css" type="text/css" />
-    <script src="app.js"></script>
-</head>
-<body>
-    <h1>TypeScript HTML App</h1>
+	<head>
+		<meta charset="utf-8" />
+		<title>TS Game</title>
 
-    <div id="content"></div>
-</body>
+		<script type="text/javascript" src="lib/phaser.js"></script>
+        <script type="text/javascript" src="game/Images.js"></script>
+		<script type="text/javascript" src="game/Boot.js"></script>
+		<script type="text/javascript" src="game/Preload.js"></script>
+		<script type="text/javascript" src="game/MainMenu.js"></script>
+		<script type="text/javascript" src="game/Game.js"></script>
+
+		<style>
+		  body {
+		    padding: 0px;
+		    margin: 0px;
+		  }
+		  </style>
+	</head>
+
+	<body>  
+		<!-- include the main game file -->
+		<script src="game/main.js"></script>
+	</body>
 </html>
