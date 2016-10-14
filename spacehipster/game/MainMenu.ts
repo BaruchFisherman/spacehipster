@@ -33,7 +33,7 @@
 
         update() {
             if (this.game.input.activePointer.justPressed()) {
-                this.game.state.start('Game');
+                this.game.state.start("Game");
             }
         }
     }

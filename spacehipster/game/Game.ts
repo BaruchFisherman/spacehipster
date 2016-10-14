@@ -27,41 +27,41 @@ namespace SpaceHipster {
             this.player.animations.add("fly", [0, 1, 2, 3], 5, true);
             this.player.animations.play("fly");
 
-            //player initial score of zero
+            // player initial score of zero
             this.playerScore = 0;
 
-            //enable player physics
+            // enable player physics
             this.game.physics.arcade.enable(this.player);
             this.playerSpeed = 120;
             this.player.body.collideWorldBounds = true;
 
-            //the camera will follow the player in the world
+            // the camera will follow the player in the world
             this.game.camera.follow(this.player);
 
-            //generate game elements
+            // generate game elements
             this.generateCollectables();
             this.generateAsteriods();
 
-            //show score
+            // show score
             this.showLabels();
 
-            //sounds
-            this.explosionSound = this.game.add.audio('explosion');
+            // sounds
+            this.explosionSound = this.game.add.audio("explosion");
 
-            this.collectSound = this.game.add.audio('collect');
+            this.collectSound = this.game.add.audio("collect");
         }
 
         update() {
             if (this.game.input.activePointer.justPressed()) {
 
-                //move on the direction of the input
+                // move on the direction of the input
                 this.game.physics.arcade.moveToPointer(this.player, this.playerSpeed);
             }
 
-            //collision between player and asteroids
+            // collision between player and asteroids
             this.game.physics.arcade.collide(this.player, this.asteroids, this.hitAsteroid, null, this);
 
-            //overlapping between player and collectables
+            // overlapping between player and collectables
             this.game.physics.arcade.overlap(this.player, this.collectables, this.collect, null, this);
         }
 
@@ -69,19 +69,19 @@ namespace SpaceHipster {
 
             this.collectables = this.game.add.group();
 
-            //enable physics in them
+            // enable physics in them
             this.collectables.enableBody = true;
             this.collectables.physicsBodyType = Phaser.Physics.ARCADE;
 
-            //phaser's random number generator
+            // phaser's random number generator
             let numCollectables = this.game.rnd.integerInRange(100, 150),
                 collectable;
 
             for (let i = 0; i < numCollectables; i++) {
-                //add sprite
+                // add sprite
                 collectable = this.collectables.create(this.game.world.randomX, this.game.world.randomY, ImageName.Power.toString());
-                collectable.animations.add('fly', [0, 1, 2, 3], 5, true);
-                collectable.animations.play('fly');
+                collectable.animations.add("fly", [0, 1, 2, 3], 5, true);
+                collectable.animations.play("fly");
             }
         }
 
@@ -89,19 +89,19 @@ namespace SpaceHipster {
 
             this.asteroids = this.game.add.group();
 
-            //enable physics in them
+            // enable physics in them
             this.asteroids.enableBody = true;
 
-            //phaser's random number generator
+            // phaser's random number generator
             let numAsteroids = this.game.rnd.integerInRange(150, 200),
                 asteriod;
 
             for (let i = 0; i < numAsteroids; i++) {
-                //add sprite
+                // add sprite
                 asteriod = this.asteroids.create(this.game.world.randomX, this.game.world.randomY, ImageName.Rock.toString());
                 asteriod.scale.setTo(this.game.rnd.integerInRange(10, 40) / 10);
 
-                //physics properties
+                // physics properties
                 asteriod.body.velocity.x = this.game.rnd.integerInRange(-20, 20);
                 asteriod.body.velocity.y = this.game.rnd.integerInRange(-20, 20);
                 asteriod.body.immovable = true;
@@ -111,10 +111,10 @@ namespace SpaceHipster {
 
         hitAsteroid (player, asteroid) {
 
-            //play explosion sound
+            // play explosion sound
             this.explosionSound.play();
 
-            //make the player explode
+            // make the player explode
             var emitter = this.game.add.emitter(this.player.x, this.player.y, 100);
             emitter.makeParticles(ImageName.PlayerParticle.toString());
             emitter.minParticleSpeed.setTo(-200, -200);
@@ -127,25 +127,25 @@ namespace SpaceHipster {
         }
 
         gameOver() {
-            //pass it the score as a parameter 
-            this.game.state.start('MainMenu', true, false, this.playerScore);
+            // pass it the score as a parameter 
+            this.game.state.start("MainMenu", true, false, this.playerScore);
         }
 
         collect(player, collectable) {
 
-            //play collect sound
+            // play collect sound
             this.collectSound.play();
 
-            //update score
+            // update score
             this.playerScore++;
             this.scoreLabel.text = this.playerScore.toString();
 
-            //remove sprite
+            // remove sprite
             collectable.destroy();
         }
 
         showLabels () {
-            //score text
+            // score text
             let text = "0";
             let style = { font: "20px Arial", fill: "#fff", align: "center" };
             this.scoreLabel = this.game.add.text(this.game.width - 50, this.game.height - 50, text, style);
