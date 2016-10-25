@@ -23,7 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-    <Content Include="lib\phaser.js" />
     <Content Include="assets\images\enemy.png" />
     <Content Include="assets\images\logo.png" />
     <Content Include="assets\images\player-particle.png" />
