@@ -31,6 +31,7 @@
     <Content Include="assets\images\preloader-bar.png" />
     <Content Include="assets\images\rock.png" />
     <Content Include="assets\images\space.png" />
+    <Content Include="index.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
